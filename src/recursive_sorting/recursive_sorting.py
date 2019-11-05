@@ -7,7 +7,7 @@ def merge( arrA, arrB ):
     merged_arr = arrA + arrB  #this can't be it not sure what the other two lines are for will ask about this later
     return merged_arr
 
-print(merge([1, 2, 3], [4, 5, 6]))
+# print(merge([1, 2, 3], [4, 5, 6]))
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort( arr ):
@@ -15,12 +15,20 @@ def merge_sort( arr ):
     # split arr iso each item is in it's own list
     # compare two list together by looking at first index of each list and sort which comes first
     if len(arr) <= 1:
-        return 
+        return arr
+    # for item in arr:
+    #     newArr = [item]
+    #     print("new", newArr)
     half = int(len(arr) / 2)
-    arr = arr[:half]
-    print("half", arr)
+    leftArr = arr[:half]
+    rightArr = arr[half:]
+    print("half", leftArr, rightArr)
+    merge_sort(leftArr)
+    if leftArr[0] < rightArr[0]:
+        print("merge", merge(leftArr, rightArr))
 
-    return merge_sort(arr)
+    print("after", arr)
+    # return merge_sort(arr)
 
 merge_sort([3,6,5,8,1,2,6,9])
 # STRETCH: implement an in-place merge sort algorithm
